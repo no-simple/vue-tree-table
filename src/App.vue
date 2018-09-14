@@ -18,7 +18,7 @@
                       show-overflow-tooltip
                       align="left">
                           <template slot-scope="scope">
-                            <p :style="`margin-left: ${scope.row.__level * 20}px;margin:0`"><i  @click="toggleFoldingStatus(scope.row)" class="permission_toggleFold" :class="toggleFoldingClass(scope.row)"></i>{{scope.row.Name}}</p>
+                            <p :style="`margin-left: ${scope.row.__level * 20}px;margin-top:0;margin-bottom:0`"><i  @click="toggleFoldingStatus(scope.row)" class="permission_toggleFold" :class="toggleFoldingClass(scope.row)"></i>{{scope.row.Name}}</p>
                           </template>
                     </el-table-column>
                     <el-table-column
