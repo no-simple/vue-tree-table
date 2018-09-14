@@ -155,9 +155,9 @@ export default {
       width 16px
       font-size 16px
   .init_table
-      width 66%
-      max-width 900px
-      margin 0 auto
+      width 66% !important
+      max-width 900px !important
+      margin 0 auto !important
       th  
           background-color: #edf6ff
           text-align: center !important
@@ -168,8 +168,8 @@ export default {
       td, th    
           font-family: '宋体'
           font-size 12px
-          padding 0    
-          height 40px   
+          padding 0 !important    
+          height 40px !important   
       .el-table--border, .el-table--group
           border: 1px solid #dde2ef
       td, th.is-leaf
