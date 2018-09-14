@@ -1,9 +1,15 @@
-# y
+# tree table
 
-> zyx
+> 基于vue和element-ui中table实现的tree table，传入树形接口数据即可。可无限层级。
 
-## Build Setup
+## demo
 
+> [tree table](https://no-simple.github.io/vue-tree-table/)
+
+## 方式说明
+
+>   * 主要依靠el-table中的`:row-style="toggleDisplayTr"` 方法实现，具体可看代码注释
+>   * `formatConversion`该方法将树形数据扁平化，并添加折叠相应字段以及标识
 ``` bash
 # install dependencies
 npm install
