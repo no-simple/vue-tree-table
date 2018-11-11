@@ -2,6 +2,10 @@
 
 > 基于vue和element-ui中table实现的tree table，传入树形接口数据即可。可无限层级。
 
+## 详细说明文档
+
+> [详细说明文档,已发表在掘金](https://juejin.im/post/5be797456fb9a04a0378bb91)
+
 ## demo
 
 > [tree table](https://no-simple.github.io/vue-tree-table/)

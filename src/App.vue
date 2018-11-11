@@ -1,7 +1,11 @@
 <template>
   <div id="app">
               <a href="https://github.com/no-simple/vue-tree-table"  class="app_title">基于vue element-ui中table的 tree table</a>
-                <el-table 
+                <div style="text-align: center;margin-bottom: 30px">
+                  <el-button type="primary" @click="foldList = []" :disabled="foldList.length === 0" size="small" style="margin-right: 30px">全部展开</el-button>
+                  <el-button type="primary" @click="foldList = foldAllList" :disabled="foldList === foldAllList" size="small">全部折叠</el-button>
+                </div>
+                <el-table
                   :data="tableListData"
                   :row-style="toggleDisplayTr"
                   border stripe
@@ -66,8 +70,18 @@
 export default {
   data: () => ({
       tableListData: [], // tableListData 展示数据的data
-      foldList: [] // 该数组中的值 都会在列表中进行隐藏  死亡名单    
+      foldList: [] // 该数组中的值 都会在列表中进行隐藏  死亡名单
   }),
+  computed: {
+    /*********************************
+     ** Fn: foldAllList
+     ** Intro: 记录属性结构的首层节点
+     ** Author: zyx
+     *********************************/
+    foldAllList () {
+      return this.tableListData.map(x => x.__identity)
+    },
+  },
   methods: {
     /*********************************
       ** Fn: toggleFoldingStatus
@@ -81,7 +95,7 @@ export default {
     /*********************************
       ** Fn: toggleDisplayTr
       ** Intro: 该方法会对每一行数据都做判断 如果foldList 列表中的元素 也存在与当前行的 __family列表中  则该行不展示
-      ** @params: 
+      ** @params:
       ** Author: zyx
     *********************************/
     toggleDisplayTr ({row, index}) {
@@ -94,8 +108,10 @@ export default {
     },
     /*********************************
       ** Fn: toggleFoldingClass
-      ** Intro: 获取展开的class
-      ** @params: 
+      ** Intro: 如果子集长度为0，则不返回字体图标。
+      ** Intro: 如果子集长度为不为0，根据foldList是否存在当前节点的标识返回相应的折叠或展开图标
+      ** Intro: 关于class说明：permission_placeholder返回一个占位符，具体查看class
+      ** @params: params 当前行的数据对象
       ** Author: zyx
     *********************************/
     toggleFoldingClass (params) {
@@ -150,32 +166,32 @@ export default {
       font-size 16px
       cursor pointer
   .permission_placeholder
-      content ' '   
-      display inline-block 
+      content ' '
+      display inline-block
       width 16px
       font-size 16px
   .init_table
       width 66% !important
       max-width 900px !important
       margin 0 auto !important
-      th  
+      th
           background-color: #edf6ff
           text-align: center !important
           color #066cd4
           font-weight bold
-          .cell 
+          .cell
               padding 0 !important
-      td, th    
+      td, th
           font-family: '宋体'
           font-size 12px
-          padding 0 !important    
-          height 40px !important   
+          padding 0 !important
+          height 40px !important
       .el-table--border, .el-table--group
           border: 1px solid #dde2ef
       td, th.is-leaf
           border-bottom: 1px solid #dde2ef
       .el-table--border td, .el-table--border th, .el-table__body-wrapper .el-table--border.is-scrolling-left~.el-table__fixed
-          border-right: 1px solid #dde2ef    
+          border-right: 1px solid #dde2ef
       .el-table--striped .el-table__body tr.el-table__row--striped td
-          background-color #f7f9fa  
+          background-color #f7f9fa
 </style>
